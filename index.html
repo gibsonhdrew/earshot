@@ -1,0 +1,762 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Earshot </title>
+	<script src="./js/jquery-1.11.2.min.js"></script>
+	<script src="./js/detectmobilebrowser.jquery.js"></script>
+	<!-- // <script src="./js/modernizr.custom.38178.js"></script> -->
+	<script src="./js/modernizr.custom.24622.js"></script>
+	<script src="./js/earshotlib.js"></script>
+	<script src="./js/earshot.js"></script>
+	<script src="./js/audio.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenLite.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TimelineMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/CSSPlugin.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="full-screen">
+		<a href="#/game" id="enter-href">
+			<div class="enter-mssg">
+				<div class="main-logo">
+					<img src="./images/earshotlogofinalFront.png" id="enterlogo"/>
+					<!-- <h1>an audio play &amp; theatrical sound installation</h1> -->
+				</div>
+				<!-- <span class="sound-container nav"> -->
+				<!-- </span> -->
+				<p id="instruct">
+				Navigate this virtual <em>Earshot</em> bar and click on tables to listen in on snippets of conversation
+				</p>
+				<div id="enter-speaker">
+					<span class="sound"></span>
+					<p>ENTER</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="bar">
+		<div class="wrapper">
+			<a href="#/game" id="home">
+				<div class="logo">
+					<img src="./images/earshotlogofinal.png" class="main"/>
+				</div>
+			</a>
+			<!--<h1>an audio play &amp; theatrical sound installation</h1>-->
+			<a href="https://www.facebook.com/earshotplay" class="share facebook" target="_blank"></a>
+			<a href="https://twitter.com/earshotplay" class="share twitter" target="_blank"></a>
+			<a href="https://instagram.com/earshotplaypix" class="share insta" target="_blank"></a>
+			<a href="javascript:void(0);" onclick="earshotLibrary.gameControl()" id="game">
+				<span id="exp-audio">PLAY AUDIO</span>
+				<span class="button sound-container nav">
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="concentric"></span>
+					<span class="sound" id="playgame"></span>
+				</span>
+			</a>
+		</div>
+	</div>	
+	<div class="menu">
+		<!--float left-->
+		<div class="nav-buttons">
+			<a href="#/pg_about" class="button nav" id="about"><span class="icon"></span>ABOUT</a>
+<!-- 			<a href="#/pg_tickets" class="button nav" id="tickets"><span class="icon"></span>TICKETS</a> -->
+			<a href="#/pg_collaborators" class="button nav" id="collaborators"><span class="icon"></span>COLLABORATORS</a>
+			<a href="#/pg_supporters" class="button nav" id="supporters"><span class="icon"></span>SUPPORTERS</a>
+			<a href="#/pg_contact" class="button nav" id="contact"><span class="icon"></span>CONTACT</a>
+			<a href="javascript:void(0);" onclick="earshotLibrary.mobileMenu()" class="mobile-button"><span>&nbsp;</span></a>
+		</div>
+	</div>
+	<div class="viewfinder">
+		<div class="floorlayer">
+			<div class="center">
+				<div class="furniture">
+					<!--<img src="./images/floorplan2.png" id="floorplan"/>-->
+					<!--<img src="./images/floorplanTHings3.png" id="floorplan"/>-->
+					<div class="table table-narrow" id="script1">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>						
+						<img src="./images/table1.png"/>
+					</div>
+					<div class="bottombar">
+						<div class="table" id="script2">
+							<span class="button sound-container nav">
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="sound" id="playgame"></span>
+							</span>								
+							<img src="./images/table2.png"/>
+						</div>
+						<div class="table" id="script3">
+							<span class="button sound-container nav">
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="concentric"></span>
+								<span class="sound" id="playgame"></span>
+							</span>								
+							<img src="./images/table3.png"/>
+						</div>
+					</div>
+					<div class="table" id="script4">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table4.png"/>
+					</div>
+					<div class="table table-narrow" id="script5">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table5.png"/>
+					</div>
+					<div class="table table-narrow" id="script6">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table6.png"/>
+					</div>
+					<div class="table" id="script7">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table7.png"/>
+					</div>
+					<div class="table" id="script8">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table8.png"/>
+					</div>
+					<div class="table" id="script9">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>							
+						<img src="./images/table9.png"/>
+					</div>
+					<div class="table" id="script10">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table10.png"/>
+					</div>
+					<div class="table" id="script11">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+							<img src="./images/table11.png"/>
+					</div>
+					<div class="table" id="script12">
+						<div class="tabletop"></div>
+						<span class="button sound-container nav">
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="concentric"></span>
+							<span class="sound" id="playgame"></span>
+						</span>	
+						<img src="./images/table12.png"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="viewfinder v-mask"></div>
+	<div class="toplayer"><!--viewfinder-->
+		<div class="center">
+			<div class="content">
+				<div class="page pg_about">
+					<div class="title"><h4>ABOUT</h4></div>
+					<div class="align-center">
+						<img src="./images/intro2.jpg"\>
+					</div>
+					<h1 class="align-center">Explore a bar full of hidden dramas, featuring twelve different audio plays with curated local music and special drinks.</h1>
+					<hr>
+					<p class="align-center" style="padding-bottom: 0;">There are few places where one is as surrounded by humanity and intrigue as in a bar, where strangers have chance encounters, old friends reconnect, drunks philosophize, lovers plot affairs and relationships fall apart. Come explore this world of hidden dramas at <em>Earshot</em>, an innovative audio installation and theatrical environment that allows the audience to explore an eerily abandoned bar and eavesdrop on the recorded conversations of absent strangers. Featuring twelve original scripts from eleven different writers, <em>Earshot</em> is a paean to the diversity, and frequent absurdity, of the lives and stories around us every day. The objects left behind at the bar provide clues to the identities of the speakers, while curated local music and special drinks keep this empty bar buzzing.</p>
+					<p class="align-center" style="padding-bottom: 0;">
+					In 2015, Earshot had six successful shows in Bonnie Vee in the Lower East Side and Kilo Bravo in Williamsburg. Check out our feature on <a href="http://www.culturebot.org/2015/04/23797/jaime-sunwoos-earshot-a-theatrical-sound-installation-at-bonnie-vee-and-kilo-bravo/" target="_blank">Culturebot.</a> 
+					</p>
+					<p class="align-center">
+					Interested in hosting or sponsoring Earshot? Earshot is now available to show at interested bars, art galleries, performances spaces, and other venues. Please email <a href="mailto:contact@earshotplay.com"> contact@earshotplay.com</a> if you're interested in hosting or sponsoring a show.
+					</p>
+					<!-- <p class="align-center">Free Rein Projects is a production company based in New York City specializing in multimedia performance works. Free Rein Projects was founded in 2015 by Jaime Sunwoo, a director, producer, and artist. <em>Earshot</em> is its first production. Visit <a href="http://www.freereinprojects.com/" target="_blank">freereinprojects.com</a> for updates on their latest projects.</p> -->
+				</div>
+
+<!--**********TICKETS**************-->
+<!-- 
+				<div class="page pg_tickets">
+					<div class="title"><h4>TICKETS</h4></div>
+					<h1 class="discount"> 
+						&mdash; 25&#37; DISCOUNT FOR FIRST WEEK OF SHOWS  &mdash;
+					</h1>
+					<div class="subtitle"><h4>SHOW DATES AND LOCATIONS</h4></div>
+					<h1 class="coming-soon">&mdash; MORE SHOW DATES COMING SOON &mdash;</h1>
+					<div class="column loc-1">						
+						<h1 class="align-center">LOWER EAST SIDE</h1>
+						<h3>BONNIE VEE</h3>
+						<h3>17 Stanton Street</h3>
+						<h3>New York, NY 10002</h3>
+						<h3><strong>MON 5/04</strong> 8:00 PM, 9:40 PM</h3>
+						<h3 class="grey">[NO UNDER 21]</h3>
+
+
+						<a href="http://www.eventbrite.com/e/earshot-at-bonnie-vee-april-27-tickets-16388870553" target="_blank" class="normal-bttn">BUY TICKETS</a>
+					</div>
+					<div class="column loc-2">
+						<h1 class="align-center">WILLIAMSBURG</h1>
+						<h3>KILO BRAVO</h3>
+						<h3>180 N 10th St</h3>
+						<h3>Brooklyn, NY 11211</h3>
+						<h3><strong>WED 5/06</strong> 8:00 PM, 9:40 PM </h3>
+						<h3 class="grey">[ALL AGES]</h3>
+
+						
+						<a href="https://www.eventbrite.com/e/earshot-at-kilo-bravo-april-29-tickets-16325184065" target="_blank" class="normal-bttn">BUY TICKETS</a>
+					</div>
+					<div class="clear-both">&nbsp;</div>
+					<div class="column" id="calendar">
+						<span>
+						<div style="width:195px; text-align:center;" ><iframe  src="https://www.eventbrite.com/calendar-widget?eid=16388871556" frameborder="0" height="342" width="195" marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true"></iframe><div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:195px; text-align:center;" ><a style="color:#ddd; text-decoration:none;" target="_blank" href="http://www.eventbrite.com/r/ecal">Online Ticketing</a> <span style="color:#ddd;">powered by</span> <a style="color:#ddd; text-decoration:none;" target="_blank" href="http://www.eventbrite.com?ref=ecal">Eventbrite</a></div></div>
+						</span>
+					</div>
+					<div class="column" id="specials">
+						<img src="./images/specials.png"/>
+
+					</div>
+					<div class="clear-both">&nbsp;</div>
+				</div> -->
+
+<!--**************BIOS******************-->
+
+				<div class="page pg_collaborators">
+					<div class="title"><h4>COLLABORATORS</h4></div>
+					<div id="team">
+						<div class="subtitle"><h4>The Team</h4></div>
+						<div class="column">
+							<div class="bio">
+								<h6>Jaime Sunwoo <span>(Creator, Director, Producer)</span></h6>
+								<p>Jaime Sunwoo is a producer, director, and artist from New York City focusing on multimedia performance works. She graduated from Yale University with a B.A. in Art. Her art has been featured in the Brooklyn Museum, Broadway NYC Gallery, Hartford State Capitol, Yale University School of Art, and DUMBO Arts Festival 2014. She has directed, produced, and written shows at Yale University, WYBC Yale Radio, and New York International Fringe Festival 2014. She is the Founder of <a href="http://www.freereinprojects.com/" target="_blank">Free Rein Projects,</a> <em>Earshot</em> being its first production. View her art at <a href="http://www.jaimesunwoo.com/" target="_blank">www.jaimesunwoo.com</a></p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio">
+								<h6>Nathan Campbell<span>(Script Editor)</span></h6>
+								<p>Nathan Campbell is a native Brooklynite. He graduated from Yale University in 2014 with a mediocre grasp of the Turkish language to show for it. Since 2006, he has been the frontman and lyricist for local rock band <a href="http://sisterhelen.bandcamp.com/" target="_blank">Sister Helen,</a> with whom he has recorded four albums. He is also a member of New York-based experimental comedy troupe <a href="http://hismajestythebaby.com/" target="_blank">His Majesty, the Baby.</a></p>
+							</div>
+						</div>
+						<div class="clear-both"></div>
+						<div class="column">
+							<div class="bio">
+								<h6>Drew Gibson<span>(Sound Designer)</span></h6>
+								<p>Drew Gibson is a sound designer based in New York City. He received a B.A. in English from NYU and has worked as a writer, editor and translator for publishers and news media in New York, Beijing and Hong Kong. He is a classically-trained multi-instrumental musician with a focus on experimental music and sound art.</p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio">
+								<h6>Taja Cheek<span>(Music Director)</span></h6>
+								<p>Taja Cheek is a composer, producer, and consultant born and raised in Brooklyn. Employers, clients and collaborators include: Matt and Kim, Creative Time, Weeksville Heritage Center, and the Doris Duke Foundation. Taja traces her interest in music directing to her years at Yale, during which she co-founded a music festival in a church, collaboratively managed the largest FM station in New Haven, and organized shows with local musicians and nationally touring bands. She is a songwriter and multi-instrumentalist in <a href="http://www.throwvision.org/" target="_blank">Throw Vision,</a> with whom she will release an EP this spring.</p>
+							</div>
+						</div>
+						<div class="clear-both"></div>
+						<div class="column">
+							<div class="bio">
+								<h6>Sarah Tembeckjian<span>(Music Director)</span></h6>
+								<p>Sarah Tembeckjian is a native New Yorker with an addiction to music, art and the moving image. She graduated from the University of Rochester with a B.A. in Music and was the General Manager at the school's student radio station where she hosted two FM shows featuring up and coming artists. Today, she works at dms.FM, a division of Downtown Music Publishing, where she helps manage a catalog of artists and works to place their music in upcoming films, TV shows, and ad campaigns. </p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio">
+								<h6>Rebecca Aston<span>(Web Developer)</span></h6>
+								<p>Rebecca Aston is a Zimbabwean artist currently living and working in New York. She is a 3D artist, animator, web developer and painter. She graduated from Yale with a BA in Fine Art in 2014. Some of her work can be seen at: <a href="http://rebeccaaston.com/" target="_blank">rebeccaaston.com</a></p>
+							</div>
+						</div>
+						<div class="clear-both">&nbsp;</div>
+					</div>
+					<div id="writers">
+						<div class="subtitle"><h4>Writers</h4></div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6>Toby Arguello<span class="plusminus"></span></h6>
+								<p>Toby Arguello is currently a freshman at NYU, majoring in Dramatic Writing. His script for Earshot is his first publicly produced work. Toby dreams to one day be the latest good thing to come out of New Jersey, and hopes to use <em>Earshot</em> to jumpstart his career into multi-million dollar screen appearances and his own line of cologne. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Shon Arieh-Lerer<span class="plusminus"></span></h6>
+								<p>Shon Arieh-Lerer is a playwright and performer. He is the Artistic Director of the experimental comedy troupe <a href="http://hismajestythebaby.com/" target="_blank">His Majesty, the Baby,</a> which has performed original shows in venues across NYC and LA. They recently performed at the NYC Fringe Festival and they perform regularly at the People's Improv Theater. Shon is vegan and lives in Brooklyn with his two biographical facts.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Zach Bell<span class="plusminus"></span></h6>
+								<p>Zach Bell is currently getting his MFA in Film/TV Production at the University of Southern California. He studied photography in undergrad at Yale. He is 22 for two more days as of the writing of this bio. For his birthday he would like ten pounds of cornstarch, a slingshot, and a weather balloon. He enjoys running, baking, garage saling and old country music. He'd like to dedicate this project to his recently deceased toad. Mr. Toad lived for ten years in his bedroom, which is crazy. RIP Mr. Toad.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Jason Bell<span class="plusminus"></span></h6>
+								<p>Jason Bell's work has recently appeared in Guernica, Vice, The Brooklyn Quarterly, and Alimentum. He writes a monthly column for Full Stop about food and culture. Read more at <a href="http://jasonebell.com/">jasonebell.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Katie Birenboim<span class="plusminus"></span></h6>
+								<p>Katie Birenboim is a junior at Princeton University, majoring in English and Theatre.  Birenboim has a strong background as a musical theatre performer, for which she's trained at Interlochen Arts Camp, Manhattan School of Music, and Berkshire Theatre Group, earning equity membership candidacy last year.  Birenboim performs, writes plays, and directs musicals.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Ryan Cavataro<span class="plusminus"></span></h6>
+								<p>Ryan Cavataro is an aspiring artist and filmmaker. He received a BA in Art at Yale University in 2014. He currently lives in Rye, NY and works in New York City.</p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6>Ruthie Prillaman<span class="plusminus"></span></h6>
+								<p>Ruthie Prillaman is a writer from Potomac, Maryland and current undergraduate at Yale University. She studies English and Playwriting and wrote the book and lyrics for an original musical called <em>The Devil's Dictionary,</em> in production at Yale. Ruthie is a member of WORD, Yale's oldest spoken word group and has read as a part of the WAVEMACHINE reading series in New Haven. Ruthie has published her writing in the Yale Herald, the YDN Magazine and Calliope Magazine. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Shunori Ramanathan<span class="plusminus"></span></h6>
+								<p>Shunori Ramanathan is a recent Yale graduate, and an aspiring actress. She currently lives in New York City, but grew up in India, where most of her family still lives. She loves to dance, sing, write, travel, play tennis, horse ride, and binge-watch TV. Visit <a href="http://www.imdb.me/shunoriramanathan">IMDb profile</a> for more info.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Zack Sigel <span class="plusminus"></span></h6>
+								<p>Zack Sigel is a screenwriter and music journalist living in Brooklyn. His work explores esoteric themes like metal music and medieval history with an eye toward class consciousness and social justice. Follow him on Twitter: <a href="https://twitter.com/search?q=%40zacksigel&src=typd">@zacksigel</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Laura Tunbridge<span class="plusminus"></span></h6>
+								<p>Laura Jayne Tunbridge is a writer from Kent, UK. Her time spent on the East Coast helped her not only develop a Mid-Atlantic accent fit for a 1930s film, but also nurtured her love of dramatic writing. A screenwriter and playwright, Laura is inspired by the lives, loves and adventures of her fabulous friends. In 2013, Laura's screenplay <em>Proposition,</em> about California's same-sex marriage ban, placed in the top 20% of the Academy Nicholl Fellowship. She is currently based in London, working on getting her accent back.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Semyon White<span class="plusminus"></span></h6>
+								<p>Semyon White was born in Queens NY and attended classes at Boston University. He performed in rock bands in Boston and worked as a photographer for a decade before returning to New York where he was employed by the Unified Court System for 14 years then dropped out of society altogether. Obsessed with Einstein and gravity, he lives in reclusion, writing, playing piano and wandering back and forth between New York, Las Vegas and Hong Kong. The characters featured in his dialogues for <em>Earshot</em> also appear in his novel <em>Inferno,</em> which can be found on <a href="http://www.amazon.com/SemyonWhite/e/B005HJRSPE/ref=ntt_athr_dp_pel_1">Amazon.</a></p>
+							</div>
+						</div>
+						<div class="clear-both">&nbsp;</div>
+					</div>
+					<div id="voice">
+						<div class="subtitle"><h4>Voice Actors</h4></div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6><span class="collapse">Julia Anrather<span> (Chloe)</span></span><span class="plusminus"></span></h6>
+								<p>Julia Anrather is an actress and musician born in New York City and based in Brooklyn. She is a member of the BAT acting company at the Flea Theater where she performs regularly, and she is the soloist with the new-music chamber orchestra ShoutHouse. She also just released her first solo song called "Quiet Day". For more info please visit <a href="http://www.juliaanrather.com/">juliaanrather.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Clyde Baldo<span> (Clayton Hargot)</span></span><span class="plusminus"></span></h6>
+								<p>Clyde Baldo is an actor, director, acting coach and psychotherapist. He recently appeared on Gotham and has also appeared on <em>Blue Bloods, The Tomorrow People, The Sopranos</em> and <em>Law and Order, Criminal Intent.</em> He has been in over 60 plays, 30 films and 15 commercials. He is directing <em>The Last Lift of The Leg,</em>  a comedic short film this February. He will be directing and acting in the play, <em>The Eternal Space</em> by Justin Rivers, in the fall.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Christian Barber<span> (Alice's Dad)</span></span><span class="plusminus"></span></h6>
+								<p>Christian Barber is an actor. Christian has performed on stages such La MaMa in <em>Helen of Troy,</em> starred in web series such as <em>Empire,</em> and appeared in several independent films including the critically acclaimed <em>Happy New Year</em> directed by K. Lorrel Manning and the soon to be released <em>Shankman's</em> directed by Patrick Coker. Christian is represented by Multimedia Talent Management.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Nathaniel Basch-Gould<span> (Larry)</span></span><span class="plusminus"></span></h6>
+								<p>Nathaniel Basch-Gould is an actor, director, and musician. New York credits: <em>You On The Moors Now</em> (Theatre Reconstruction Ensemble), <em>Immersion</em> (Sans Comedia), <em>Benye the Miller</em> (Target Margin), <em>The What Dance</em> (Tugboat Collective), <em>Il Regno Malati at Dinner</em> (Theater for the New City), <em>Obedient Steel</em> (Tugboat Collective), <em>Jack the Bird</em> (Tugboat Collective), <em>MARS</em> (Superhero Clubhouse), <em>Berries of Wrath</em> (The Dead Copycats), <em>Moon &amp; Marble</em> (Tugboat Collective). He also directed The Dead Copycats' inaugural production, <em>Ghost in the Machine,</em> and fronts a rock band, The Copper Look. Originally from Sandy Hook, CT, Nathaniel now lives in Brooklyn, NY. Training: Williams College, LAMDA.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Nathan Campbell<span> (Gabe)</span></span><span class="plusminus"></span></h6>
+									<p>Nathan Campbell is a native Brooklynite. He graduated from Yale University in 2014 with a mediocre grasp of the Turkish language to show for it. Since 2006, he has been the frontman and lyricist for local rock band <a href="http://sisterhelen.bandcamp.com/" target="_blank">Sister Helen,</a> with whom he has recorded four albums. He is also a member of New York-based experimental comedy troupe <a href="http://hismajestythebaby.com/" target="_blank">His Majesty, the Baby.</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Peter Corn<span> (Walter Scozzari) </span></span><span class="plusminus"></span></h6>
+								<p>Peter Corn is a singer songwriter from the heart of dixie, Birmingham, Alabama. He Received his B.A. in Archaeology from the University of Alabama then soon after released his first full length album <em>When the dark rises in the east</em> with Birmingham band <a href="http://moodysgoose.bandcamp.com/" target="_blank">Moody's Goose.</a> <em>Earshot</em> is his first project as an actor. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Ella Dershowitz<span> (Emily Peters)</span></span><span class="plusminus"></span></h6>
+								<p>Ella Dershowitz is an actress who has performed Off-Broadway: <em>Intimacy</em> (The New Group), <em>A Splintered Soul</em> (Theater Three).  Regional: <em>4,000 Miles</em> (Hudson Stage), <em>The Screenwriter's Daughter</em> (The Vineyard Playhouse), <em>Twelfth Night</em> (Payomet and Provincetown Playhouse).  TV/Film: <em>Phil Spector</em> (HBO), <em>Lie to Me</em> (Fox), <em>Knife Fight,</em> <em>Two-Bit Waltz.</em>  Upcoming Film: <em>Michael,</em> and <em>Dynamite: A Cautionary Tale.</em> Training: Yale University and LAMDA. Visit <a href="http://elladershowitz.com/">elladershowitz.com</a> for more info.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Peter Drivas<span> (Kevin) </span></span><span class="plusminus"></span></h6>
+								<p>Peter Drivas is an actor. He received a B.A. from Williams College. In New York, he's appeared in plays including <em>Ghost in the Machine, Cat on a Hot Tin Roof,</em> and <em>Berries of Wrath.</em> In addition to Williams, Peter has trained at T. Schreiber Studio and ESPA-Primary Stages. Peter is also a writer, and has served as an organizer and communications specialist to various elected officials, government entities, and non-profits in the New York City area.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Julian Drucker<span> (Richard Dunn)</span></span><span class="plusminus"></span></h6>
+								<p>Julian Drucker is a composer, singer, and actor majoring in Theater Studies at Yale University. Growing up in New York, Julian has studied piano, voice and composition with musicians such as Jeff Franzel, Bruce Adolphe and Richard Danielpour. At Yale, Julian has been focusing on musical theater songwriting and is thrilled to have his second original musical, <em>Under</em>, produced in April. As President of his a cappella group, Julian has taken the award-winning Redhot &amp; Blue on tours around the world with performances in a wide variety of concert venues.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Christopher Farrelli<span> (Johnnie Ferraro)</span></span><span class="plusminus"></span></h6>
+								<p>Christopher Farrelli is a South Korean, Italian actor from Queens, New York. He is currently pursuing his career education at the Barrow Group School in NYC and has recently finished his first voice over project feature for the upcoming film <em>City of Gold,</em> directed by Shemie Reut.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Tricia Fukuhara<span> (Jennifer Healy)</span></span><span class="plusminus"></span></h6>
+								<p>Tricia Fukuhara is a recent graduate of NYU. You may have spotted her doing backbends in the library basement, sprinkling pixie dust in parades at Disneyland, defeating the Huns on Disney Cruise Line, toying with your psyche in Blackout "House," or getting pregnant in <em>Comfort Women - A New Musical.</em> When not performing, she can be found gallivanting with cats and dancing to live jazz at your local speakeasy. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Emma Love<span> (Sasha Safille)</span></span><span class="plusminus"></span></h6>
+								<p>Emma Love is a New York based working actor and singer, and voice over artist. She is a graduate of the Michael Howard Studios Two Year Conservatory and holds a BFA with honors in vocal performance from the New School for Jazz and Contemporary Music. Favorite credits include: <em>In Private: An Evening with Hollywood Icons</em> (Gene Tierney), <em>Twelfth Night</em> (Maria), <em>Table Manners</em> (Sarah), <em>Little Women: The Musical</em> (Jo March), <em>My Moto X:</em> <em>Motorola</em> (v/o).</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Tong Lung<span> (Steven)</span></span><span class="plusminus"></span></h6>
+								<p>Tong Lung has acted in stage productions (<em>Yellow Fever, Exit the Dragon</em>), directed stage productions (<em>Exit the Dragon</em>), acted in films (<em>Shanghai Noon, Romeo Must Die, Spy Game</em>), acted in TV shows (<em>MacGyver</em>), was a voice actor for animation series (<em>Street Fighter: The Animated Series</em>) and has acted in online short films <em><a href="https://www.youtube.com/watch?v=ms-9qOXKAkE">A Chanukah Joke.</a></em>  He has also acted in the short film <em><a href="http://vimeo.com/99039884">Reset</a></em> which won the New York City 48 Hour Film Contest for Best Short Film for 2014. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Synead Nichols<span> (Alice Feinberg)</span></span><span class="plusminus"></span></h6>
+								<p>Synead Nichols is a performance artist and social activist raised in Washington Heights. She has trained at the Harlem School of the Arts, LaGuardia High School for the Performing Arts, Bloomingdale's School of Music, and William Esper. Her work in social activism has been featured in publications such as Essence, Elle, and Refinery29. Her latest works focus on bridging the gap between art and activism. She resides in Harlem with a Labradoodle and great natural lighting. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Susan O'Doherty<span> (Dr. Mercedes Janowitz)</span></span><span class="plusminus"></span></h6>
+								<p>Susan O'Doherty is an actor, singer and improviser. She performs with the musical house team Space God at the Queen's Secret Improv Club, and with Suestin and The Chupacabra Conspiracy throughout the city. She is also a clinical psychologist and hypnotherapist who specializes in the creative process. </p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6><span class="collapse">Kevin Percival<span> (Seamus)</span></span><span class="plusminus"></span></h6>
+								<p>Kevin Percival is an actor. Recent credits include <em>Pinwheel</em> with Random Access Theatre, <em>Son Of Cock-Strong</em> with Peculiar Works Project and <em>The Taming of the Shrew</em> with Hamlet Isn't Dead. He was recently featured in the film <em>When The Moon Was Twice As Big,</em> opening 2016. He can be seen around town with the interactive theatre company Playing With Reality, or cracking jokes with the Dallas Spiders Club at Under St. Marks. More info at <a href="http://www.kevinpercival.com/">kevinpercival.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Andy Manjuck<span> (Derek)</span></span><span class="plusminus"></span></h6>
+								<p>Andy Manjuck has been performing internationally and Off-Broadway with the Drama Desk and Obie award-winning Wakka Wakka in their last two productions: <em>Saga,</em> and <em>Baby Universe: A Puppet Odyssey.</em> He was in <em>POWERHOUSE</em> at the New Ohio and has performed with Robin Frohardt’s <em>The Pigeoning</em> since 2012. Andy’s voice is in <em>Telltale, HBO’s Game of Thrones: Episode Three,</em> and <em>A Golden Wake</em> produced by Wadjet Eye Games. He will be puppeteering alongside the New York Philharmonic Orchestra with Giants Are Small’s production of <em>Stravinsky’s Petrushka.</em> Find out more: <a href="http://www.andymanjuck.com/" target="_blank">andymanjuck.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Shunori Ramanathan<span> (Priya)</span></span><span class="plusminus"></span></h6>
+								<p>Shunori Ramanathan is a recent Yale graduate, and an aspiring actress. She currently lives in New York City, but grew up in India, where most of her family still lives. She loves to dance, sing, write, travel, play tennis, horse ride, and binge-watch TV. Visit her <a href="http://www.imdb.me/shunoriramanathan">IMDb profile</a> for more info. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Max Reinhardsen<span> (Danny)</span></span><span class="plusminus"></span></h6>
+								<p>Max Reinhardsen is an actor, writer, and graphic designer from Nyack, NY. He was last seen in <em>Play/Date,</em> an immersive series of scenes about dating in NYC, produced by 3 Legged Dog on the Lower East Side. Recent credits include <em>The Vaults</em> (New Georges), <em>Robin Hood, Okay, Babs the Dodo </em>(Williamstown Theatre Festival). He is currently writing and producing a new web series, and does a lot of one acts in basements of places.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Sarah Rosen<span> (Shelly Dumas)</span></span><span class="plusminus"></span></h6>
+								<p>Sarah Rosen is an actress and writer living in Brooklyn. She is a graduate of Yale College and the William Esper Studio, where she studied with veteran acting teacher Bill Esper. Sarah wrote, directed and acting in the short film <em>Food of Love</em> that has toured film festivals around the world. Her first book <em>Kosher Porn</em> (based on the Jewish comedy blog Porn4Jews.com) came out in September. Visit <a href="http://www.sarahrosen.net/">sarahrosen.net</a> for more info.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Alexi Sargeant<span> (HONY)</span></span><span class="plusminus"></span></h6>
+								<p>Alexi Sargeant is a senior Theatre Studies and English major at Yale, getting ready to try and make it in the real world. He is a director and playwright, and longtime scholar of Shakespeare. Please hire him.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Rory Scholl<span> (DOM)</span></span><span class="plusminus"></span></h6>
+								<p>Rory Scholl is an improviser and voice over actor. He performs weekly at the Peoples Improv Theater Mondays and Fridays, is the lead guitarist of the improv storytelling band The BTK Band, and is a spokesperson for Cornell University. He eats almonds to lower his cholesterol. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Abby Sheridan<span> (Mr. Beans)</span></span><span class="plusminus"></span></h6>
+								<p>Abby Sheridan is a Cincinnati native and recent graduate of the University of Kentucky with a B.A. in theatre. She is continuing her acting career in New York City. <em>Earshot</em> is her first voice over project. <a href="http://www.abbysheridan.com/" target="_blank">abbysheridan.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Elaine St. George<span> (Hannah Scozzari)</span></span><span class="plusminus"></span></h6>
+								<p>Elaine St. George is a singer and actress. An "Outstanding Vocalist" Bistro Award-winner, her 2014 Steve Goodman cabaret show won a rave review from <em>The New York Times.</em> She has performed at The Iridium, the Metropolitan Room, and at colleges around the country and is currently finishing an album of Steve Goodman's music. Although Elaine is not Southern herself, she is the proud wife of a Georgia native and bakes a mean biscuit. Graduate of Smith College and The Brearley School.  <a hred="http://www.elainestgeorge.com/">elainestgeorge.com</a> <a href="https://twitter.com/search?q=%40SingerElaineStG&src=typd">@SingerElaineStG</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Benny Suh<span>  (Jake)</span></span><span class="plusminus"></span></h6>
+								<p>Benny Suh is a New Yorker from Queens, NY with a BS in Elementary Education from Bucknell University and an MS in Adolescent Math Education from Hunter College. He became a teacher to improve the world through the youth and educational reform. He is also a sports and mathematics enthusiast. </p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Leonard Thomas<span> (Benjamin)</span></span><span class="plusminus"></span></h6>
+								<p>Leonard Thomas is a recent Yale College Alumnus who now finds himself working in finance. His acting experience began in Detroit at the Mosaic Youth Theatre of Detroit. He has participated in various film and theater projects in his time at Yale.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Nick Trotta<span> (Milo Bova) </span></span><span class="plusminus"></span></h6>
+								<p>Nick Trotta is a dramaturg, director, actor, voice actor, and radio producer based in Brooklyn, NY. He is a member of the Tugboat Collective Theater Company. His recent work includes: Associate director of <em>Rantoul and Die</em> with The Amoralists, performing for <em>Jack the Bird</em> with Tugboat Collective, dramaturg and assistant director of <em>Obedient Steel</em> with Tugboat Collective, and associate dramaturg and assistant director of <em>Uriel Acosta: I Want That Man!</em> with The Target Margin Theater Company. Training: Vassar College (B.A. in Drama), National Theater Institute, Complicite Theater Company in London. For more info, visit <a href="http://www.tugboatcollective.com/">tugboatcollective.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Harriet Weaver<span> (Beatrice)</span></span><span class="plusminus"></span></h6>
+								<p>Harriet Weaver is a recent Yale graduate and actor in film, theater, web series, and sketch comedy. Her recent horror series, <em>The Voodoo Church,</em> is set to appear on Netflix this year. She is in production for the comedy pilot <em>Half Past the Color Blue,</em> two feature films, and several shorts. Harriet made her professional theater debut alongside Paul Giamatti in Yale Repertory Theatre's production of <em>Hamlet.</em> She currently studies acting with Wynn Handman and improv with Ali Farahnakian. Please visit <a href="http://www.harrietweaver.com/">harrietweaver.com</a> for more information.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Nicole Wood<span> (Terry)</span></span><span class="plusminus"></span></h6>
+								<p>Nicole Wood is a Brooklyn-based actress, writer, and voice artist.  She's worked on indie films across the country, and with New York City theater companies including Target Margin Theater, Mohawk Arts Collective, Playing with Reality, and One Year Lease.  For VO demos, reel and more, visit <a href="http://www.nicolejaywood.com/">nicolejaywood.com</a></p>
+							</div>
+
+						</div>
+						<div class="clear-both">&nbsp;</div>
+					</div>
+					<div id="artists">
+						<div class="subtitle"><h4>Artists</h4></div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6><span class="collapse">Ariel Abrahams <span>(Speaker Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Ariel Abrahams is a life-artist, educator, and organizer. He graduated from New York University in 2010. Ariel is the Director of Public Engagement for Odyssey Works and the founder of the Bilha Zilpah Reunion community. Ariel has made interactive performances for Philadelphia's Night Kitchen, Williamsburg Community Circus, Greece Works Artist Residency, Walk Exchange, Figment Festival, Greene County Council for the Arts, and Nothing Space. He has also taught workshops at Mellow Pages Library, and at the Embros Self-Organized Theater in Athens, Greece. Check out his work at: <a href="http://www.arielabrahams.com/" target="_blank">arielabrahams.com</a> | <a href="http://www.zanzibardior.com/" target="_blank">zanzibardior.com</a> | <a href="http://www.softpower.space/" target="_blank">softpower.space</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Andrea Markel <span>(Props Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Andrea Markel is from Knoxville, TN, where she attended the University of Tennessee and received a BFA in 2-Dimensional Arts. She has been exploring life in New York City for the past three years, engaging in a wide array of solo and collaborative projects in art, music, fashion, theater and journalism.</p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Rumi Hara <span>(Props Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Rumi Hara is an illustrator from Japan. She graduated from Savannah College of Art and Design in 2014 and has been making illustrations and comics in Brooklyn, NY since then. See her work at <a href="http://www.rumihara.com/" target="_blank">rumihara.com</a></p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6><span class="collapse">Stephanie Lin <span>(Props Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Stephanie Lin is a freelance 3D artist/concept designer who graduated from School of Visual Arts as a Computer Art Major. Her graduation film, Monster has been accepted to film festivals such as Cannes Film Festival, SIGGRAPH ASIA, ZubrOFFka International Short Film Festival, Redhook Film Festival and others. She has worked with studios such as Psyop, Framestore, and Nathan Love. Currently she is working on the Homestuck Adventure game at What Pumpkin Studios. <a href="http://www.slinart.tumblr.com/" target="_blank">slinart.tumblr.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Jenny Acosta <span>(Props Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Jenny Acosta is a Brooklyn-based artist, illustrator, maker, and food lover with a passion for combining the bold flavors of culinary culture with everyday life. She received a BFA in Interdisciplinary Sculpture from Maryland Institute College of Art in 2014 and has proudly worked alongside Sir Kensington's, The Museum of Food and Drink, Creative Mornings, Weight Watchers, Tattly, Emilie Baltz, The Brooklyn Historical Society, and more. You can follow her work at <a href="http://www.jennyacosta.com/" target="_blank">jennyacosta.com</a></p>
+							</div>
+							<div class="bio bio-button">
+								<h6><span class="collapse">Jenny Peng <span>(Props Designer)</span></span><span class="plusminus"></span></h6>
+								<p>Jenny Peng is an illustrator and designer. She graduated from the Fashion Institute of Technology with a BFA in Illustration. She currently resides and freelances in New York City. You can view her work at <a href="https://www.behance.net/jennypeng" target="_blank">behance.net/jennypeng</a></p>
+							</div>
+						</div>
+						<div class="clear-both">&nbsp;</div>
+					</div>
+					<div id="musicians">
+						<div class="subtitle"><h4>Musicians</h4></div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6>Alex Britten<span class="plusminus"></span></h6>
+								<p>
+									Alex Britten is a composer, songwriter, sound designer and engineer. He writes/produces music and sound design for Advertisements and Commercials at Analogue Muse and composes music for various Film/Television libraries around the city.  He also co-writes and produces songs with artists and plays bass in RIBS, a session and studio band.
+								 	<a href="https://soundcloud.com/alex8ritten" target="_blank">soundcloud.com/alex8ritten</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Beat Culture<span class="plusminus"></span></h6>
+								<p>Beat Culture is the moniker of producer and instrumentalist Sunik Kim. Kim was born in Hong Kong, grew up in Tokyo and continued on to high school in the United States. Currently a junior at Yale University, his exposure to a variety of cities has informed his eclectic sound, which often seems to be on the verge of unraveling, chaotic, and abrasive as much as it is streamlined and pop-minded.
+								 <a href="https://soundcloud.com/beat-culture" target="_blank">soundcloud.com/beat-culture</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Bellows<span class="plusminus"></span></h6>
+								<p>Bellows is the bedroom recording project of songwriter and producer Oliver Kalb. The sound of Bellows is sensory and delicate, subtle and quiet but erupting with frantic wobbling drums, large orchestral sections and bursts of noise that push the conventions of pop and folk. Started in late 2010 in a college dorm room, Bellows has since blossomed from solo recording experiment into a large-scale rock band, employing the help of The Epoch art collective to bring Kalb's intimate home recordings to life on stage. Bellows' latest record <em>Blue Breath</em> was recorded over the course of three years, in five bedrooms across the country, and was released in 2014 on Dead Labour. The record was recorded by layering dozens of strange sounds over would-be humble folk songs, the result being a soaring pop record that treads the line between minuscule and gigantic. <em>Blue Breath</em> was named one of Bob Boilen of NPR's All Songs Considered's favorite records of 2014.
+								 <a href="https://bellows.bandcamp.com/" target="_blank">bellows.bandcamp.com</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>BOYTOY<span class="plusminus"></span></h6>
+								<p>BOYTOY is the Brooklyn/Boston trio of Saara Untracht-Oakner, Glenn Van Dyke and Matthew Gregory aka Matty Beans. Formed after an impromptu 2am jam session, the band has picked up momentum and just last year released their debut EP. Check out their EP on Spotify or catch them on tour this Spring.
+								 <a href="http://boytoy.bandcamp.com/track/visits" target="_blank">boytoy.bandcamp.com/track/visits</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Cicero and the Orations<span class="plusminus"></span></h6>
+								<p>Cicero &amp; the Orations was formed in 2009 by guitarist Ian McNally and lead singer Tim Bustle. They were soon joined by drummer Daniel Bloch, bassist Shannon Moore, and keyboardist/percussionist John Mason. The band is influenced by a wide range of music, from D'Angelo to Cage the Elephant. This coming summer they are are recording a full length LP of their music to be released in Fall 2015. 
+								 <a href="http://ciceroandtheorations1.bandcamp.com/album/first-oration" target="_blank">ciceroandtheorations1.bandcamp.com/album/first-oration</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Frog<span class="plusminus"></span></h6>
+								<p>Frog is a two person band made up of Dan Bateman and Tom White that lives in Queens, NYC. Frog writes exuberant pop songs mostly using electric guitars, keyboards, glockenspiels, police sirens, and primitive drums. <em>Kind of Blah,</em> the debut full-length LP from Frog, is made up of 11 songs (and one secret track) that range from frenzied screams of frozen guitar pop (‘Fucking’), to ballads about depression era starlets (‘Judy Garland’), to whispered self-searching kazoo solos (secret track ‘KIND OF BLAH’). The record aims to engage modern recording and composition ideas with 50's era arrangement techniques while utilizing minimalist instrumentation and idiosyncratic production methods. 
+								 <a href="https://frogtunes.bandcamp.com/" target="_blank">frogtunes.bandcamp.com</a>
+								</p>
+							</div>							
+						</div>
+						<div class="column">
+							<div class="bio bio-button">
+								<h6>Gillian<span class="plusminus"></span></h6>
+								<p>With roots extending back to 2012, Gillian was formed after members discovered they were living in the same city for the first time since high school, and soon agreed on the name Gillian in honor of a good friend. They soon released their first EP, Freak Flag, which premiered on Death + Taxes, with the publication gushing insistently, "Just to clarify, Gillian isn’t a girl, Gillian is a band... Four dudes and a girl making rambunctious singalong indie-pop fit for any millennial who loves the sound of their own voice in the shower."
+								 <a href="https://gilliantheband.bandcamp.com/" target="_blank">gilliantheband.bandcamp.com</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Gold Lake<span class="plusminus"></span></h6>
+								<p>Brooklyn band Gold Lake have recently released their debut album, Years, mixed by Phil Ek on Outside Music.The press have all agreed on the glimmering of their sound. Spin Magazine called their first single, We Already Exist, "Majestic" and that it was "fruit of Divine Inspiration" and others such as Clash Magazine and Filter said it was "effortlessly beautiful". With their second single, "Lovers", Stereogum said: "Gold Lake's name truly captures the sound of the Spanish trio: a glistening amalgam of intimate vocals and scintillating instrumentation...." Gold Lake will be touring for the most part of 2015, starting off with an East Coast US tour in April and May, and playing festivals such as SXSW and CMW. 
+								 <a href="https://goldlake.bandcamp.com/" target="_blank">goldlake.bandcamp.com</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>James Tillman<span class="plusminus"></span></h6>
+								<p>Singer-songwriter James Tillman hails from Washington, DC and makes groovy music that feels good. He combines elements of soul, alternative, funk and Jazz to make something all his own, something genuine, and something that will make your head nod uncontrollably. James is currently working on his next project, a follow-up to his debut EP <em>Shangri La.</em>
+								 <a href="http://jmtill.bandcamp.com/" target="_blank"> jmtill.bandcamp.com</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Sister Helen<span class="plusminus"></span></h6>
+								<p>Sister Helen is a rock band from Brooklyn. They play music that is loud and complicated and weird. You can call it prog-punk or you can call it math-glam, so long as you don’t call it late for lunch. While they play this music, they jump around and make faces. Their latest release is the late-2014 masterpiece, The Jasmine EP, which is available free at <a href="http://sisterhelen.bandcamp.com/" target="_blank">sisterhelen.bandcamp.com</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>Squanto<span class="plusminus"></span></h6>
+								<p>Ben Lovell is a sound artist and songwriter based in New York. He currently records and performs under the name Lung Cycles, and has previously done so as Squanto. Lovell runs a small record label called Lily Tapes &amp; Discs, focusing on limited releases with handmade packaging and artwork. Lily is primarily where he publishes his own music, though he has also released work with other labels including Fluid Audio, Lost Tribe Sound, Rok Lok Records, and divingstation.fm 
+								 <a href="https://lilytapesanddiscs.bandcamp.com/album/a-gift-a-favor-2" target="_blank">lilytapesanddiscs.bandcamp.com/album/a-gift-a-favor-2</a>
+								</p>
+							</div>
+							<div class="bio bio-button">
+								<h6>THR﻿OW VISION<span class="plusminus"></span></h6>
+								<p>THROW VISION entered the studio to record their debut album, In I, just months after forming in the Spring of 2012. In I carries a sound that is undeniably "Throw Vision," bringing together diverse influences &mdash; Debussy, Animal Collective and Here We Go Magic &mdash; on top of soulful pulses of r&amp;b and jazz.​ In March 2013, Throw Vision was voted Deli Magazine's "NYC Artist of the Month." Today, the band continues to make music and is releasing their next album in Spring 2015.
+								 <a href="http://www.throwvision.org" target="_blank">throwvision.org </a>
+								</p>
+							</div>	
+						</div>
+						<div class="clear-both"></div>
+					</div>
+				</div>
+				<div class="page pg_supporters">
+					<div class="title"><h4>SUPPORTERS</h4></div>
+					<p class="align-center">
+						Thanks to our Kickstarter Supporters who made this show possible. Special thanks to our mentors Ronald Gregg, Rick Joyce, Danielle Baskin, Charlie Schroder, and Peter Sunwoo. Thanks to Katherine Buenaflor of Kilo Bravo and Nino Cirabisi of Bonnie Vee for hosting the event and crafting Earshot-inspired specialty cocktails. 
+					</p>
+					<div class="align-center">
+					<h1 >Thanks to our Kickstarter Supporters:</h1>
+					<div class="column">
+						<ul>
+							<li>Peter Sunwoo</li>
+							<li>Ellen Moskowitz Birenboim</li>
+							<li>Michael Choi</li>
+							<li>Semyon White</li>
+							<li>Rick Smolan</li>
+							<li>Eva Szabo</li>
+							<li>Steven Yoo</li>
+							<li>Richard Bell</li>
+							<li>Motti Lerer</li>
+							<li>Michael Clemow</li>
+							<li>Ronald Gregg</li>
+							<li>Madeline Popelka</li>
+							<li>Sandra Luckow</li>
+							<li>Tim Drager</li>
+							<li>Tara Abraham</li>
+							<li>Cindy Sigel</li>
+							<li>Alexander Meeks</li>
+							<li>Michael Zannettis</li>
+							<li>Lucy Rudin </li>
+						</ul>
+					</div>
+					<div class="column">
+						<ul id="second-ul">
+							<li>Sunny Bates</li>
+							<li>Robert Tembeckjian</li>
+							<li>Penelope Laurans-Fitzgerald</li>
+							<li>Johanna Flato</li>
+							<li>Richy Qiao </li>
+							<li>Nick Trotta</li>
+							<li>Harriet Weaver</li>
+							<li>Anh Vo</li>
+							<li>Kyle Skinner</li>
+							<li>Richard Miron</li>
+							<li>Laura Jayne Tunbridge</li>
+							<li>Gabe Smedresman</li>
+							<li>Suckzoo Han</li>
+							<li>Courtney Peters</li>
+							<li>Kimberly Brown</li>
+							<li>Alicia N. Washington</li>
+							<li>Christy Mirabal</li>
+							<li>Brett Kuehner</li>
+						</ul>
+					</div>
+					<div class="column" id="leaf">
+						<img src="./images/leaf.png"></src>
+					</div>
+					<div class="clear-both"></div>
+				</div>
+				</div>
+				<div class="page pg_contact">
+					<div class="title"><h4>CONTACT</h4></div>
+					<h1 class="align-center">Interested in hosting or sponsoring Earshot?</h1>
+					<p class="align-center" style="width:68%;padding-top: 5px;">
+						Earshot is now available to show at interested bars, art galleries, performances spaces, and other venues. Please email <a href="mailto:contact@earshotplay.com"> contact@earshotplay.com</a> if you're interested in hosting or sponsoring a show.
+					</p>
+					<div class="title"><h4>FOLLOW</h4></div>
+					<div class="follow-share">			
+						<a href="https://www.facebook.com/earshotplay" class="share facebook" target="_blank"></a>
+						<a href="https://twitter.com/earshotplay" class="share twitter" target="_blank"></a>
+						<a href="https://instagram.com/earshotplaypix" class="share insta" target="_blank"></a>
+					</div>
+					<div class="align-center">
+					<!-- Begin MailChimp Signup Form -->
+					<!--End mc_embed_signup-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
