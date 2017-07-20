@@ -1,8 +1,8 @@
 var audioObj = {
-	mainsound:'<audio src="http://earshotplay.com/earshotAudio/barnoisyambience.mp3" autoplay loop controls class="soundclip" id="ambient"></audio>',
-	mainsrc:'http://earshotplay.com/earshotAudio/barnoisyambience.mp3',
+	mainsound:'<audio src="https://gibsonhdrew.github.io/earshot/earshotAudio/barnoisyambience.mp3" autoplay loop controls class="soundclip" id="ambient"></audio>',
+	mainsrc:'https://gibsonhdrew.github.io/earshot/earshotAudio/barnoisyambience.mp3',
 	script1:{
-		mainsound:'http://earshotplay.com/earshotAudio/ryanconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/ryanconvo.mp3',
 		author:'Ryan Cavataro',
 		cast:[
 			{actor:'Christopher Farrelli',character:'Johnnie Ferraro',x:-20,y:4},
@@ -10,7 +10,7 @@ var audioObj = {
 		]
 	},
 	script2:{
-		mainsound:'http://earshotplay.com/earshotAudio/shonconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/shonconvo.mp3',
 		author:'Shon Arieh-Lerer',
 		cast:[
 			{actor:'Rory Scholl',character:'DOM',x:37,y:-19},
@@ -18,7 +18,7 @@ var audioObj = {
 		]
 	},
 	script3:{
-		mainsound:'http://earshotplay.com/earshotAudio/shunoriconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/shunoriconvo.mp3',
 		author:'Shunori Ramanathan',
 		cast:[
 			{actor:'Tong Lung',character:'Steven',x:1,y:-19},
@@ -26,7 +26,7 @@ var audioObj = {
 		]
 	},
 	script4:{
-		mainsound:'http://earshotplay.com/earshotAudio/zackconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/zackconvo.mp3',
 		author:'Zack Sigel',
 		cast:[
 			{actor:'Nathaniel Basch-Gould',character:'Larry',x:50,y:-6},
@@ -35,7 +35,7 @@ var audioObj = {
 		]
 	},
 	script5:{
-		mainsound:'http://earshotplay.com/earshotAudio/semyonconvo2.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/semyonconvo2.mp3',
 		author:'Semyon White',
 		cast:[
 			{actor:'Nick Trotta',character:'Milo Bova',x:-18,y:5},
@@ -44,7 +44,7 @@ var audioObj = {
 		]
 	},
 	script6:{
-		mainsound:'http://earshotplay.com/earshotAudio/ruthieconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/ruthieconvo.mp3',
 		author:'Ruthie Prillaman',
 		cast:[
 			{actor:'Harriet Weaver',character:'Beatrice',x:56,y:15},
@@ -52,7 +52,7 @@ var audioObj = {
 		]
 	},
 	script7:{
-		mainsound:'http://earshotplay.com/earshotAudio/lauraconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/lauraconvo.mp3',
 		author:'Laura Tunbridge',
 		cast:[
 			{actor:'Emma Love',character:'Sasha Safille',x:-14,y:40},
@@ -60,7 +60,7 @@ var audioObj = {
 		]
 	},
 	script8:{
-		mainsound:'http://earshotplay.com/earshotAudio/katieconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/katieconvo.mp3',
 		author:'Katie Birenboim',
 		cast:[
 			{actor:'Synead Nichols',character:'Alice Feinberg',x:-21,y:20},
@@ -70,7 +70,7 @@ var audioObj = {
 		]
 	},
 	script9:{
-		mainsound:'http://earshotplay.com/earshotAudio/semyonconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/semyonconvo.mp3',
 		author:'Semyon White',
 		cast:[
 			{actor:"Susan O'Doherty",character:'Dr. Mercedes Janowitz',x:-19,y:17},
@@ -78,7 +78,7 @@ var audioObj = {
 		]
 	},
 	script10:{
-		mainsound:'http://earshotplay.com/earshotAudio/jasonconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/jasonconvo.mp3',
 		author:'Jason Bell',
 		cast:[
 			{actor:'Peter Corn',character:'Walter Scozzari',x:20,y:-19},
@@ -86,7 +86,7 @@ var audioObj = {
 		]
 	},
 	script11:{
-		mainsound:'http://earshotplay.com/earshotAudio/zachconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/zachconvo.mp3',
 		author:'Zach Bell',
 		cast:[
 			{actor:'Nicole Wood',character:'Terry',x:55,y:20},
@@ -94,7 +94,7 @@ var audioObj = {
 		]
 	},
 	script12:{
-		mainsound:'http://earshotplay.com/earshotAudio/tobyconvo.mp3',
+		mainsound:'https://gibsonhdrew.github.io/earshot/earshotAudio/tobyconvo.mp3',
 		author:'Toby Arguello',
 		cast:[
 			{actor:'Julia Anrather',character:'Chloe',x:55,y:5},
